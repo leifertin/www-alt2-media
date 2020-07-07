@@ -1,0 +1,17 @@
+# Prevent Apache from serving .htaccess files:
+<FilesMatch "^\.htaccess">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Add www to any URLs that do not have them:
+
+# BEGIN HTTPS Redirect
+RewriteEngine On 
+RewriteCond %{HTTPS} off
+   RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+   RewriteRule ^ https://www.alt2media.eu%{REQUEST_URI} [L,R=301]
+# END HTTPS Redirect

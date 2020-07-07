@@ -1,0 +1,1 @@
+<?php header("Location: https://www.alt2media.eu/magazine/article?aid=1"); ?>

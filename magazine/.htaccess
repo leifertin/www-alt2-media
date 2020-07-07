@@ -1,0 +1,41 @@
+RewriteEngine On
+RewriteOptions Inherit
+
+#remove php extension from url
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [QSA,L]
+
+# BEGIN Expire headers
+<ifModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 5 seconds"
+  ExpiresByType image/jpeg "access plus 604805 seconds"
+  ExpiresByType image/png "access plus 604805 seconds"
+  ExpiresByType image/gif "access plus 604805 seconds"
+  ExpiresByType image/webp "access plus 604805 seconds"
+  ExpiresByType image/svg "access plus 604805 seconds"
+  ExpiresByType text/css "access plus 86400 seconds"
+  ExpiresByType text/javascript "access plus 604805 seconds"
+  ExpiresByType application/javascript "access plus 604805 seconds"
+  ExpiresByType application/x-javascript "access plus 604805 seconds"
+  ExpiresByType text/html "access plus 600 seconds"
+  ExpiresByType application/xhtml+xml "access plus 600 seconds"
+</ifModule>
+# END Expire headers
+
+# BEGIN Cache-Control Headers
+<ifModule mod_headers.c>
+  <filesMatch "\.(ico|jpe?g|png|gif|webp|svg)$">
+    Header set Cache-Control "public"
+  </filesMatch>
+  <filesMatch "\.(css)$">
+    Header set Cache-Control "public"
+  </filesMatch>
+  <filesMatch "\.(js)$">
+    Header set Cache-Control "private"
+  </filesMatch>
+  <filesMatch "\.(x?html?|php)$">
+    Header set Cache-Control "private, must-revalidate"
+  </filesMatch>
+</ifModule>
+# END Cache-Control Headers

@@ -1,0 +1,1 @@
+<?php echo ('<a href="/magazine/rss/feed"><img src="/pic_rss.gif" width="36" height="14"></a>'); ?>

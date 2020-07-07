@@ -1,0 +1,3 @@
+<p>
+Reflecting on my first year in Finland, I have learned more practical information than in the past 10 years of school in the United States. Students applying now should be warned that there is now an annual tuition based upon the school to where they apply, but rest assured, upon graduating a percentage is refunded. This provides even more incentive to finish one’s studies and pursue a career in their field of interest. I want to stand atop the highest mountain and yell to the world: come to Finland for the education and stay for the sauna!
+</p>

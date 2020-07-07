@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteOptions Inherit
+
+#remove php extension from url
+RewriteCond %{REQUEST_FILENAME}.xml -f
+RewriteRule !.*\.xml$ %{REQUEST_FILENAME}.xml [QSA,L]
